@@ -15,6 +15,7 @@
       - [Microsoft Defender products](#microsoft-defender-products)
       - [Required roles and permissions](#required-roles-and-permissions)
       - [Lab simulation: Explore Microsoft 365 Defender](#lab-simulation-explore-microsoft-365-defender)
+      - [Alert Categories](#alert-categories)
 
 ## Introduction
 
@@ -40,7 +41,7 @@ The following abbreviations are very useful to know for this exam
 | SOC              | Security Operations Center                |
 | MDO              | Microsoft Defender for Office             |
 | MDE              | Microsoft Defender for Endpoints          |
-|                  |                                           |
+| PUA              | Potentially Unwanted Application          |
 
 ## Mitigate threats using Microsoft 365 Defender
 
@@ -109,3 +110,24 @@ The following cloud guide demonstrates Microsoft 365 Defender and Microsoft Sent
 #### Lab simulation: Explore Microsoft 365 Defender
 
 [Start interactive lab simulation: Explore Microsoft 365 Defender](https://mslabs.cloudguides.com/guides/SC-200%20Lab%20Simulation%20-%20Explore%20Microsoft%20365%20Defender)
+
+#### Alert Categories
+
+The alert categories align with the enterprise attack tactics in the [MITRE ATT&CK matrix](https://attack.mitre.org/matrices/enterprise/). The categories are:
+
+- **Collection** - Locating and collecting data for exfiltration
+- **Command and control** - Connecting to attacker-controlled network infrastructure to relay data or receive commands
+- **Credential access** - Obtaining valid credentials to extend control over devices and other resources in the network
+- **Defense evasion** - Avoiding security controls by, for example, turning off security apps, deleting implants, and running rootkits
+- **Discovery** - Gathering information about important devices and resources, such as administrator computers, domain controllers, and file servers
+- **Execution** - Launching attacker tools and malicious code, including RATs and backdoors
+- **Exfiltration** - Extracting data from the network to an external, attacker-controlled location
+- **Exploit** - Exploit code and possible exploitation activity
+- **Initial access** - Gaining initial entry to the target network, usually involving password-guessing, exploits, or phishing emails
+- **Lateral movement** - Moving between devices in the target network to reach critical resources or gain network persistence
+- **Malware** - Backdoors, trojans, and other types of malicious code
+- **Persistence** - Creating autostart extensibility points (ASEPs) to remain active and survive system restarts
+- **Privilege escalation** - Obtaining higher permission levels for code by running it in the context of a privileged process or account
+- **Ransomware** - Malware that encrypts files and extorts payment to restore access
+- **Suspicious activity** - Atypical activity that could be malware activity or part of an attack
+- **Unwanted software** - Low-reputation apps and apps that impact productivity and the user experience; detected as potentially unwanted applications (PUAs)
