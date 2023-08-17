@@ -41,6 +41,10 @@
       - [Safe Links](#safe-links)
       - [Anti-phishing policies](#anti-phishing-policies)
     - [Microsoft Defender for Identity](#microsoft-defender-for-identity)
+      - [Configure Microsoft Defender for Identity sensors](#configure-microsoft-defender-for-identity-sensors)
+      - [Microsoft Defender for Identity Architecture](#microsoft-defender-for-identity-architecture)
+      - [Integrate with other Microsoft tools](#integrate-with-other-microsoft-tools)
+    - [Secure your cloud apps and services with Microsoft Defender for Cloud Apps](#secure-your-cloud-apps-and-services-with-microsoft-defender-for-cloud-apps)
 
 ## Introduction
 
@@ -336,6 +340,49 @@ An example impersonation of the user `michelle@contoso.com` is `michele@contoso.
 
 Microsoft Defender for Identity is a cloud-based security solution that leverages your on-premises Active Directory signals to identify, detect, and investigate advanced threats, compromised identities, and malicious insider actions directed at your organization.
 
+Therefore, you need to install an sensor agent on your DC's.
+
 ![Microsoft Defender for Identity](images/sc-200-defender-identity.png)
 
-> To-Do: Pick-up from [here](https://learn.microsoft.com/en-us/training/modules/m365-threat-safeguard/introduction)
+> Microsoft Defender for Identity requires one of the following licenses:
+>
+> - EMS E5/A5
+> - Microsoft 365 E5/A5/G5
+> - Microsoft 365 E5/A5/G5/F5 Security
+> - Microsoft F5 Security & Compliance
+> - Microsoft Defender for Identity for Users
+
+Microsoft Defender for Identity provides the following benefits:
+
+- Monitor users, entity behavior, and activities with learning-based analytics
+- Protect user identities and credentials stored in Active Directory
+- Identify and investigate suspicious user activities and advanced attacks throughout the kill chain
+- Provide clear incident information on a simple timeline for fast triage
+
+#### Configure Microsoft Defender for Identity sensors
+
+At a high level, the following steps are required to enable Microsoft Defender for Identity:
+
+- Create an instance on Microsoft Defender for Identity management portal.
+- Specify an on-premises AD service account in the Microsoft Defender for Identity portal.
+- Download and install the sensor package.
+- Install the Microsoft Defender for Identity sensor on all domain controllers.
+- Integrate your VPN solution (optional).
+- Exclude the sensitive accounts you've listed during the design process.
+- Configure the required permissions for the sensor to make SAM-R calls.
+- Configure integration with Microsoft Defender for Cloud Apps.
+- Configure integration with Microsoft 365 Defender (optional).
+
+#### Microsoft Defender for Identity Architecture
+
+![Defender for Identity Architecture](images/defender-identity-architecture-topology.png)
+
+Installed directly on your domain controllers, the Microsoft Defender for Identity sensor accesses the event logs it requires directly from the domain controller. After the logs and network traffic are parsed by the sensor, Microsoft Defender for Identity sends only the parsed information to the Microsoft Defender for Identity cloud service (only a percentage of the logs are sent).
+
+#### Integrate with other Microsoft tools
+
+![Defender for Identity integration](images/integration-architecture.png)
+
+### Secure your cloud apps and services with Microsoft Defender for Cloud Apps
+
+> Pick up from [here](https://learn.microsoft.com/en-us/training/modules/microsoft-cloud-app-security/cloud-app-security-framework)
